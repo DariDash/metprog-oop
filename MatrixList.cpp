@@ -1,4 +1,7 @@
 #include "MatrixList.h"
+#include "SquareMatrix.h"
+#include "DiagonalMatrix.h"
+#include "LowerTriangularMatrix.h"
 
 #include <fstream>
 
@@ -50,6 +53,8 @@ bool MatrixList::readMatricesFromFile(string filename) {
             squareMatrix = new SquareMatrix();
         } else if (typeMatrix == "Diagonal") {
             squareMatrix = new DiagonalMatrix();
+        } else if (typeMatrix == "LowerTriangular") {
+            squareMatrix = new LowerTriangularMatrix();
         } else {
             fin.close();
             return false;

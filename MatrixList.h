@@ -4,8 +4,6 @@
 #include <string>
 
 #include "AbstractSquareMatrix.h"
-#include "SquareMatrix.h"
-#include "DiagonalMatrix.h"
 #include "MatrixItem.h"
 
 using std::string;

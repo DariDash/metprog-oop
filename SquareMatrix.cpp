@@ -5,6 +5,7 @@ using std::endl;
 
 
 void SquareMatrix::readFromFile(ifstream *fin) {
+    AbstractSquareMatrix::readFromFile(fin);
     int size;
     *fin >> size;
 

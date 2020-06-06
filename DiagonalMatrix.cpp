@@ -3,6 +3,7 @@
 using std::endl;
 
 void DiagonalMatrix::readFromFile(ifstream *fin) {
+    AbstractSquareMatrix::readFromFile(fin);
     int size;
 
     *fin >> size;

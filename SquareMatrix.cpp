@@ -33,3 +33,15 @@ void SquareMatrix::writeToFile(ofstream *fout) {
 string SquareMatrix::getTypeMatrix() {
     return "Square";
 }
+
+int SquareMatrix::getSumElementsMatrix() {
+    int sum = 0;
+
+    for (int row = 0; row < this->size; ++row) {
+        for (int col = 0; col < this->size; ++col) {
+            sum += this->matrix[row][col];
+        }
+    }
+
+    return sum;
+}

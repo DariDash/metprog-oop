@@ -34,3 +34,13 @@ void DiagonalMatrix::writeToFile(ofstream *fout) {
 string DiagonalMatrix::getTypeMatrix() {
     return "Diagonal";
 }
+
+int DiagonalMatrix::getSumElementsMatrix() {
+    int sum = 0;
+
+    for (int col = 0; col < this->size; ++col) {
+        sum += this->matrix[col];
+    }
+
+    return sum;
+}

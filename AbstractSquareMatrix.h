@@ -14,6 +14,7 @@ protected:
     int size;
 public:
     AbstractSquareMatrix() {};
+    virtual string getClassName() = 0;
     int getSize();
     virtual void readFromFile(ifstream *fin) = 0;
     virtual void writeToFile(ofstream *fout);

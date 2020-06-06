@@ -40,8 +40,10 @@ bool MatrixList::readMatricesFromFile(string filename) {
     }
 
     int numMatrices;
-    string typeMatrix;
+    string typeMatrix, filter;
     fin >> numMatrices; // Кол-во матриц
+
+    fin >> filter;
 
     for (int i = 0; i < numMatrices; ++i) {
         fin >> typeMatrix;  // Тип матрицы
@@ -57,7 +59,9 @@ bool MatrixList::readMatricesFromFile(string filename) {
 
         squareMatrix->readFromFile(&fin);
 
-        this->addMatrix(squareMatrix);
+        if (filter == "All" or filter == squareMatrix->getClassName()) {
+            this->addMatrix(squareMatrix);
+        }
     }
     fin.close();
     return true;

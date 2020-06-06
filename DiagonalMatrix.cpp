@@ -34,3 +34,7 @@ void DiagonalMatrix::writeToFile(ofstream *fout) {
 string DiagonalMatrix::getTypeMatrix() {
     return "Diagonal";
 }
+
+string DiagonalMatrix::getClassName() {
+    return "Diagonal";
+}

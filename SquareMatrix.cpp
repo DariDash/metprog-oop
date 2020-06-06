@@ -33,3 +33,7 @@ void SquareMatrix::writeToFile(ofstream *fout) {
 string SquareMatrix::getTypeMatrix() {
     return "Square";
 }
+
+string SquareMatrix::getClassName() {
+    return "Square";
+}

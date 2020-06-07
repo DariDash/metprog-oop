@@ -4,6 +4,7 @@ using std::endl;
 
 
 void LowerTriangularMatrix::readFromFile(ifstream *fin) {
+    AbstractSquareMatrix::readFromFile(fin);
     int size, valuesNumber;
     *fin >> size;
 
@@ -37,4 +38,21 @@ void LowerTriangularMatrix::writeToFile(ofstream *fout) {
 
 string LowerTriangularMatrix::getTypeMatrix() {
     return "Lower triangular";
+}
+
+int LowerTriangularMatrix::getSumElementsMatrix() {
+
+    int valuesNumber = (this->size - 1)*this->size/2 + this->size; // Кол-во элементов которые необходимо считать
+
+    int sum = 0;
+
+    for (int col = 0; col < valuesNumber; ++col) {
+        sum += this->matrix[col];
+    }
+
+    return sum;
+}
+
+string LowerTriangularMatrix::getClassName() {
+    return "LowerTriangular";
 }

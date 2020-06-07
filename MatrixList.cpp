@@ -42,9 +42,20 @@ bool MatrixList::readMatricesFromFile(string filename) {
         return false;
     }
 
+    bool doSort = false;
     int numMatrices;
-    string typeMatrix;
+    string typeMatrix, sort, filter;
     fin >> numMatrices; // Кол-во матриц
+
+    fin >> sort;
+
+    if (sort == "Sort") {
+        doSort = true;
+    } else if (sort != "NoSort") {
+        return false;
+    }
+
+    fin >> filter;
 
     for (int i = 0; i < numMatrices; ++i) {
         fin >> typeMatrix;  // Тип матрицы
@@ -62,8 +73,16 @@ bool MatrixList::readMatricesFromFile(string filename) {
 
         squareMatrix->readFromFile(&fin);
 
-        this->addMatrix(squareMatrix);
+        if (filter == "All" or filter == squareMatrix->getClassName()) {
+            this->addMatrix(squareMatrix);
+        }
     }
+
+    if (doSort) {
+        this->sortList();
+    }
+
+
     fin.close();
     return true;
 }
@@ -88,4 +107,14 @@ bool MatrixList::writeMatricesToFile(string filename) {
 
     fout.close();
     return true;
+}
+
+void MatrixList::sortList() {
+    for(MatrixItem* matrixItem2 = this->firstMatrix; matrixItem2; matrixItem2 = matrixItem2->nextMatrix) {
+        for(MatrixItem* matrixItem1 = this->firstMatrix; matrixItem1->nextMatrix; matrixItem1 = matrixItem1->nextMatrix) {
+            if(matrixItem1->matrix->getSumElementsMatrix() > matrixItem1->nextMatrix->matrix->getSumElementsMatrix()) {
+                std::iter_swap(&matrixItem1->matrix, &matrixItem1->nextMatrix->matrix);
+            }
+        }
+    }
 }

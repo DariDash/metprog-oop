@@ -8,9 +8,11 @@ private:
     int **matrix;
 public:
     SquareMatrix() {};
+    string getClassName() override;
     void readFromFile(ifstream *fin) override;
     void writeToFile(ofstream *fout) override;
     string getTypeMatrix() override;
+    int getSumElementsMatrix() override;
 };
 
 

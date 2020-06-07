@@ -5,6 +5,7 @@ using std::endl;
 
 
 void SquareMatrix::readFromFile(ifstream *fin) {
+    AbstractSquareMatrix::readFromFile(fin);
     int size;
     *fin >> size;
 
@@ -31,5 +32,21 @@ void SquareMatrix::writeToFile(ofstream *fout) {
 }
 
 string SquareMatrix::getTypeMatrix() {
+    return "Square";
+}
+
+int SquareMatrix::getSumElementsMatrix() {
+    int sum = 0;
+
+    for (int row = 0; row < this->size; ++row) {
+        for (int col = 0; col < this->size; ++col) {
+            sum += this->matrix[row][col];
+        }
+    }
+
+    return sum;
+}
+
+string SquareMatrix::getClassName() {
     return "Square";
 }

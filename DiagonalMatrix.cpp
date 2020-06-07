@@ -3,6 +3,7 @@
 using std::endl;
 
 void DiagonalMatrix::readFromFile(ifstream *fin) {
+    AbstractSquareMatrix::readFromFile(fin);
     int size;
 
     *fin >> size;
@@ -32,5 +33,19 @@ void DiagonalMatrix::writeToFile(ofstream *fout) {
 }
 
 string DiagonalMatrix::getTypeMatrix() {
+    return "Diagonal";
+}
+
+int DiagonalMatrix::getSumElementsMatrix() {
+    int sum = 0;
+
+    for (int col = 0; col < this->size; ++col) {
+        sum += this->matrix[col];
+    }
+
+    return sum;
+}
+
+string DiagonalMatrix::getClassName() {
     return "Diagonal";
 }

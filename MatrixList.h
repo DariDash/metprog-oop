@@ -16,6 +16,7 @@ private:
     MatrixItem *lastMatrix;
 public:
     MatrixList();
+    int getSize();
     virtual void addMatrix(AbstractSquareMatrix *squareMatrix);
     virtual bool readMatricesFromFile(string filename);
     virtual bool writeMatricesToFile(string filename);

@@ -118,3 +118,7 @@ void MatrixList::sortList() {
         }
     }
 }
+
+int MatrixList::getSize() {
+    return this->size;
+}

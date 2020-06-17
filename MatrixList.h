@@ -21,6 +21,7 @@ public:
     virtual void addMatrix(AbstractSquareMatrix *squareMatrix);
     virtual bool readMatricesFromFile(string filename);
     virtual bool writeMatricesToFile(string filename);
+    virtual void multiMethod(ofstream *fout);
 };
 
 

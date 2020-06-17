@@ -33,3 +33,15 @@ void SquareMatrix::writeToFile(ofstream *fout) {
 string SquareMatrix::getTypeMatrix() {
     return "Square";
 }
+
+void SquareMatrix::multiMethod(AbstractSquareMatrix *otherMatrix, ofstream *fout) {
+    otherMatrix->mMSquare(fout);
+}
+
+void SquareMatrix::mMDiagonal(ofstream *fout) {
+    *fout << "DIAGONAL and SQUARE" << endl;
+}
+
+void SquareMatrix::mMSquare(ofstream *fout) {
+    *fout << "SQUARE and SQUARE" << endl;
+}

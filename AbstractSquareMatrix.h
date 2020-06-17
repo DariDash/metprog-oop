@@ -18,6 +18,9 @@ public:
     virtual void readFromFile(ifstream *fin) = 0;
     virtual void writeToFile(ofstream *fout);
     virtual string getTypeMatrix() = 0;
+    virtual void multiMethod(AbstractSquareMatrix *otherMatrix, ofstream *fout);\
+    virtual void mMDiagonal(ofstream *fout);
+    virtual void mMSquare(ofstream *fout);
 };
 
 

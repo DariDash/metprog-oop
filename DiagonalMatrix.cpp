@@ -34,3 +34,15 @@ void DiagonalMatrix::writeToFile(ofstream *fout) {
 string DiagonalMatrix::getTypeMatrix() {
     return "Diagonal";
 }
+
+void DiagonalMatrix::multiMethod(AbstractSquareMatrix *otherMatrix, ofstream *fout) {
+    otherMatrix->mMDiagonal(fout);
+}
+
+void DiagonalMatrix::mMDiagonal(ofstream *fout) {
+    *fout << "DIAGONAL and DIAGONAL" << endl;
+}
+
+void DiagonalMatrix::mMSquare(ofstream *fout) {
+    *fout << "SQUARE and DIAGONAL" << endl;
+}

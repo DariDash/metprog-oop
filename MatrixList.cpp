@@ -87,9 +87,6 @@ void MatrixList::readMatricesFromFile(string filename) {
 }
 
 void MatrixList::writeMatricesToFile(string filename) {
-    if (!this->size) {
-        return;
-    }
 
     ofstream fout(filename);
 
@@ -98,6 +95,10 @@ void MatrixList::writeMatricesToFile(string filename) {
     }
 
     fout << "Number of matrices is " << this->size << endl;
+
+    if (!this->size) {
+        return;
+    }
 
     MatrixItem *currentMatrixItem = this->firstMatrix; // инициализация текущего элемента списка
 

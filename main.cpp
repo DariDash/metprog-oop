@@ -4,33 +4,36 @@
 #include "UnitTests.h"
 
 using std::cout;
+using std::cerr;
 using std::endl;
 using std::string;
 
 
 int main(int argc, char* argv[]) {
 
-    UnitTests *unitTests = new UnitTests();
-    unitTests->run();
+//    UnitTests *unitTests = new UnitTests();
+//    unitTests->run();
 
     if (argc != 3) {
-        cout << "Type input and output files." << endl;
+        cerr << "Type input and output files." << endl;
         return -1;
     }
 
     MatrixList *matrixList = new MatrixList();
 
     string inputPath = argv[1];
-    bool isSuccessRead = matrixList->readMatricesFromFile(inputPath);
-    if (!isSuccessRead) {
-        cout << "Failed to open file for reading" << endl;
+    try {
+        matrixList->readMatricesFromFile(inputPath);
+    } catch (const char* msg) {
+        cerr << msg << endl;
         return -1;
     }
 
     string outputPath = argv[2];
-    bool isSuccessWrite = matrixList->writeMatricesToFile(outputPath);
-    if (!isSuccessWrite) {
-        cout << "Failed to open file for writing" << endl;
+    try {
+        matrixList->writeMatricesToFile(outputPath);
+    } catch (const char* msg) {
+        cerr << msg << endl;
         return -1;
     }
 

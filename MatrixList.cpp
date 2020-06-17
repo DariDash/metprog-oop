@@ -34,12 +34,12 @@ void MatrixList::addMatrix(AbstractSquareMatrix *squareMatrix) {
     this->size++;
 }
 
-bool MatrixList::readMatricesFromFile(string filename) {
+void MatrixList::readMatricesFromFile(string filename) {
 
     ifstream fin(filename);
 
     if (!fin.is_open()) {
-        return false;
+        throw "Failed to open file for reading";
     }
 
     bool doSort = false;
@@ -52,7 +52,7 @@ bool MatrixList::readMatricesFromFile(string filename) {
     if (sort == "Sort") {
         doSort = true;
     } else if (sort != "NoSort") {
-        return false;
+        throw "Invalid values for the sort field in the input file";
     }
 
     fin >> filter;
@@ -68,7 +68,7 @@ bool MatrixList::readMatricesFromFile(string filename) {
             squareMatrix = new LowerTriangularMatrix();
         } else {
             fin.close();
-            return false;
+            throw "Unrecognized matrix type";
         }
 
         squareMatrix->readFromFile(&fin);
@@ -84,29 +84,29 @@ bool MatrixList::readMatricesFromFile(string filename) {
 
 
     fin.close();
-    return true;
 }
 
-bool MatrixList::writeMatricesToFile(string filename) {
+void MatrixList::writeMatricesToFile(string filename) {
     if (!this->size) {
-        return true;
+        return;
     }
 
     ofstream fout(filename);
+
+    if (!fout.is_open()) {
+        throw "Failed to open file for writing";
+    }
 
     fout << "Number of matrices is " << this->size << endl;
 
     MatrixItem *currentMatrixItem = this->firstMatrix; // инициализация текущего элемента списка
 
     for (int i = 0; i < this->size; ++i) {
-
         currentMatrixItem->matrix->writeToFile(&fout);
-
         currentMatrixItem = currentMatrixItem->nextMatrix;
     }
 
     fout.close();
-    return true;
 }
 
 void MatrixList::sortList() {

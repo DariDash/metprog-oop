@@ -18,8 +18,8 @@ public:
     MatrixList();
     int getSize();
     virtual void addMatrix(AbstractSquareMatrix *squareMatrix);
-    virtual bool readMatricesFromFile(string filename);
-    virtual bool writeMatricesToFile(string filename);
+    virtual void readMatricesFromFile(string filename);
+    virtual void writeMatricesToFile(string filename);
     virtual void sortList();
 };
 

@@ -56,3 +56,21 @@ int LowerTriangularMatrix::getSumElementsMatrix() {
 string LowerTriangularMatrix::getClassName() {
     return "LowerTriangular";
 }
+
+void LowerTriangularMatrix::multiMethod(AbstractSquareMatrix *otherMatrix, ofstream *fout) {
+    otherMatrix->mMLowerTriangular(fout);
+}
+
+void LowerTriangularMatrix::mMDiagonal(ofstream *fout) {
+    *fout << "DIAGONAL and LOWER TRIANGULAR" << endl;
+}
+
+void LowerTriangularMatrix::mMSquare(ofstream *fout) {
+    *fout << "SQUARE and LOWER TRIANGULAR" << endl;
+
+}
+
+void LowerTriangularMatrix::mMLowerTriangular(ofstream *fout) {
+    *fout << "LOWER TRIANGULAR and LOWER TRIANGULAR" << endl;
+
+}

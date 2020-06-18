@@ -50,3 +50,19 @@ int SquareMatrix::getSumElementsMatrix() {
 string SquareMatrix::getClassName() {
     return "Square";
 }
+
+void SquareMatrix::multiMethod(AbstractSquareMatrix *otherMatrix, ofstream *fout) {
+    otherMatrix->mMSquare(fout);
+}
+
+void SquareMatrix::mMDiagonal(ofstream *fout) {
+    *fout << "DIAGONAL and SQUARE" << endl;
+}
+
+void SquareMatrix::mMSquare(ofstream *fout) {
+    *fout << "SQUARE and SQUARE" << endl;
+}
+
+void SquareMatrix::mMLowerTriangular(ofstream *fout) {
+    *fout << "LOWER TRIANGULAR and SQUARE" << endl;
+}

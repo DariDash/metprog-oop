@@ -107,6 +107,8 @@ void MatrixList::writeMatricesToFile(string filename) {
         currentMatrixItem = currentMatrixItem->nextMatrix;
     }
 
+    this->multiMethod(&fout);
+
     fout.close();
 }
 
@@ -122,4 +124,18 @@ void MatrixList::sortList() {
 
 int MatrixList::getSize() {
     return this->size;
+}
+
+void MatrixList::multiMethod(ofstream *fout) {
+    *fout << endl << endl << "Multimethod" << endl;
+    if (!this->size) {
+        return;
+    }
+
+    for(MatrixItem* matrixItem1 = this->firstMatrix; matrixItem1->nextMatrix; matrixItem1 = matrixItem1->nextMatrix) {
+        for(MatrixItem* matrixItem2 = matrixItem1->nextMatrix; matrixItem2; matrixItem2 = matrixItem2->nextMatrix) {
+            matrixItem1->matrix->multiMethod(matrixItem2->matrix, fout);
+        }
+    }
+
 }

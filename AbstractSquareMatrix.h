@@ -22,6 +22,10 @@ public:
     virtual void writeToFile(ofstream *fout);
     virtual string getTypeMatrix() = 0;
     virtual int getSumElementsMatrix() = 0;
+    virtual void multiMethod(AbstractSquareMatrix *otherMatrix, ofstream *fout);
+    virtual void mMDiagonal(ofstream *fout);
+    virtual void mMSquare(ofstream *fout);
+    virtual void mMLowerTriangular(ofstream *fout);
 };
 
 

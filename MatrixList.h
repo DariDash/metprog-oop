@@ -21,6 +21,7 @@ public:
     virtual void readMatricesFromFile(string filename);
     virtual void writeMatricesToFile(string filename);
     virtual void sortList();
+    virtual void multiMethod(ofstream *fout);
 };
 
 
